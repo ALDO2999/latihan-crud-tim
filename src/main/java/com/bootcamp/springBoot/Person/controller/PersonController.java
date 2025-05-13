@@ -5,6 +5,7 @@ import com.bootcamp.springBoot.Person.entity.Person;
 import com.bootcamp.springBoot.Person.model.PersonRequest;
 import com.bootcamp.springBoot.Person.service.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -54,14 +55,16 @@ public class PersonController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deletePerson(@PathVariable Long id) {
+    public ResponseEntity<String> deletePerson(@PathVariable Long id) {
         try {
             personService.deletePerson(id);
-            return ResponseEntity.noContent().build();
+            return ResponseEntity.ok("Data berhasil dihapus.");
         } catch (RuntimeException e) {
-            return ResponseEntity.notFound().build();
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
         }
+
     }
+
 
     @GetMapping("/search/firstname")
     public ResponseEntity<List<Person>> getPersonsByFirstname(@RequestParam String firstname) {

@@ -11,7 +11,7 @@ import lombok.*;
 @Table(name = "person")
 @Setter
 @Getter
-//@Builder
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 public class Person {
