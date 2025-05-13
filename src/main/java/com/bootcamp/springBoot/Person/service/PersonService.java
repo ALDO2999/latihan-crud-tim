@@ -19,6 +19,7 @@ public class PersonService {
 
 
     @Transactional
+    // nanti juga saya mau coba nanya perihal ini mas, kenapa harus buat PersonRequest, dan kenapa ngga langsung ke entity nya saja ya?
     public Person createPerson(PersonRequest request) {
         Person person = Person.builder()
                 .firstname(request.getFirstname())

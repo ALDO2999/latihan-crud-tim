@@ -11,6 +11,7 @@ import lombok.*;
 @Table(name = "person")
 @Setter
 @Getter
+// tadi saya lupa buat aktifin anotasi ini
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
